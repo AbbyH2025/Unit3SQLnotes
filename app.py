@@ -41,5 +41,7 @@ def index():
     
 if __name__ == "__main__":
     with app.app_context():
-        db.create_all()
+        # Ensure the database schema is created with the updated model
+        db.drop_all()  # Drop all tables
+        db.create_all()  # Create all tables
     app.run(debug=True, host="0.0.0.0", port="5421")
